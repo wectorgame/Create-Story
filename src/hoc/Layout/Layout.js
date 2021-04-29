@@ -5,10 +5,10 @@ import "./Layout.scss";
 class Layout extends Component {
   render() {
     return (
-      <div className="Layout">
+      <div className="Layout ">
         <NavbarMenu isAuthenticated={this.props.isAuthenticated}></NavbarMenu>
 
-        <main className="container">{this.props.children}</main>
+        <main>{this.props.children}</main>
       </div>
     );
   }

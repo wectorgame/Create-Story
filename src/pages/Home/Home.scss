@@ -1,0 +1,60 @@
+.Home {
+  align-items: center;
+  color: #fff;
+  &__background {
+    background-image: linear-gradient(
+        to right,
+        rgba(254, 225, 64, 0.3) 0%,
+        rgba(250, 112, 154, 0.3) 100%
+      ),
+      url(../../images/frank-mckenna-OD9EOzfSOh0-unsplash.jpg);
+    background-position: center;
+  }
+  &__root {
+    display: flex;
+    align-items: center;
+    margin-bottom: 112px;
+    flex-direction: column;
+  }
+  &__h1 {
+    padding-top: 200px;
+    color: inherit;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 48px;
+    font-family: "Roboto Condensed", sans-serif;
+  }
+  & hr {
+    border: none;
+    background-color: yellow;
+    color: yellow;
+    opacity: 0.6;
+    height: 1px;
+  }
+
+  &__h3 {
+    padding-top: 100px;
+    font-size: 20px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 300;
+    line-height: 1.334;
+  }
+  &__button {
+    margin: 40px !important;
+  }
+  &__advantages {
+    display: flex;
+    background-color: #fff5f8;
+    overflow: hidden;
+    &.block {
+      display: flex;
+      margin-top: 120px;
+      margin-bottom: 240px;
+    }
+    &img {
+      padding: 50px;
+    }
+  }
+}

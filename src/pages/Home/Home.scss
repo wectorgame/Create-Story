@@ -45,3 +45,17 @@
   }
  
 }
+.auth-button {
+  
+  color: #fff;
+  &:hover {
+    color: #fff;
+    outline: none;
+  text-decoration: none;
+  }
+  &:active{
+    color: #fff;
+    outline: none;
+  text-decoration: none;
+  }
+}

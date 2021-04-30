@@ -47,7 +47,6 @@ const styles = (theme) => ({
 
 function ProductValues(props) {
   const { classes } = props;
-  console.log(classes);
   return (
     <section className={classes.root}>
       <Container className={classes.container}>

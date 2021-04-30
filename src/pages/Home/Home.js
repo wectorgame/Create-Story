@@ -1,7 +1,9 @@
 import { Button } from "@material-ui/core";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./Home.scss";
+import ChillCategories from "./HomeComponents/ChillCategories";
 import ProductValues from "./HomeComponents/ProductValues";
 class Home extends Component {
   render() {
@@ -23,62 +25,13 @@ class Home extends Component {
               color="primary"
               className="Home__button"
             >
-              {" "}
-              Авторизация{" "}
+              <Link to="auth" className="auth-button">Авторизация</Link>
+              
             </Button>
           </div>
         </section>
         <ProductValues></ProductValues>
-       {/*  <section className={"Home__advantages"}>
-          <div className="container">
-            <img
-              src={CurvyLines}
-              alt="Curvy Lines"
-              className="CurvyLines"
-            ></img>
-            <div className=" row">
-              <div className="card">
-                <div className="card-image">
-                  <img src={productValues1} alt="suitcase"></img>
-                </div>
-                <div className="card-text">
-                  <span class="hotels">Лучшие отели</span>
-                  <p>
-                    От новейшего модного бутик-отеля до легендарного дворца с
-                    бассейном размера XXL - отправляйтесь в мини-отпуск всего в
-                    нескольких остановках метро от вашего дома.
-                  </p>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card-image">
-                  <img src={productValues2} alt="suitcase"></img>
-                </div>
-                <div className="card-text">
-                  <span class="hotels">Новейший опыт</span>
-                  <p>
-                    От новейшего модного бутик-отеля до легендарного дворца с
-                    бассейном размера XXL - отправляйтесь в мини-отпуск всего в
-                    нескольких остановках метро от вашего дома.
-                  </p>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card-image">
-                  <img src={productValues3} alt="suitcase"></img>
-                </div>
-                <div className="card-text">
-                  <span class="hotels">Лучшие отзывы</span>
-                  <p>
-                    От новейшего модного бутик-отеля до легендарного дворца с
-                    бассейном размера XXL - отправляйтесь в мини-отпуск всего в
-                    нескольких остановках метро от вашего дома.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
+        <ChillCategories></ChillCategories>
         <footer></footer>
       </div>
     );

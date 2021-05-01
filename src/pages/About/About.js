@@ -1,14 +1,16 @@
 import { Component } from "react";
+import ChillCategories from "../Home/HomeComponents/ChillCategories";
+import HowItWorks from "./HowItWorks";
 
 class About extends Component {
-    render(){
-
-        return (
-            <div>
-                <h1>About</h1>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="About">
+        <HowItWorks></HowItWorks>
+        <ChillCategories></ChillCategories>
+      </div>
+    );
+  }
 }
 
-export default About
+export default About;

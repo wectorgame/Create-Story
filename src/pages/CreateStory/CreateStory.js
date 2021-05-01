@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 import './CreateStory.scss'
 class CreateStory extends Component {
     render(){
@@ -8,15 +9,14 @@ class CreateStory extends Component {
                 <h1>Начнем путешествие</h1>
                 <div className="column">
                     <h2>Выберите направление</h2>
-                    <input>
-                    </input>
+                    
                 </div>
             </div>
         )
     }
 }
 
-/* function mapStateToProps(state){
+function mapStateToProps(state){
     return {
 
     }
@@ -25,5 +25,7 @@ function mapDispatchToProps(dispatch){
     return {
 
     }
-} */
-export default CreateStory
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateStory)

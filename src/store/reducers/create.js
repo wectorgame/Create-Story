@@ -1,10 +1,24 @@
 const initialState = {
   story: [],
+  places: [
+    "Судак",
+    "Новый Свет",
+    "Меганом",
+    "Коктебель",
+    "Ялта",
+    "Севастополь ",
+  ],
+  adults: 0,
+  children: 0,
+  dateStart: "",
+  dateOut: "",
 };
-const handlers = {
-  DEFAULT: (state) => state,
-};
+
 export default function createReducer(state = initialState, action) {
-  const handler = handlers[action.type] || handlers.DEFAULT;
-  return handler(state, action);
+  switch (action.type) {
+    default:
+      return {
+        ...state,
+      };
+  }
 }

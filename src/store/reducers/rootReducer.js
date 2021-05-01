@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import authReducer from "./auth";/* 
+import authReducer from "./auth";
 import createReducer from "./create";
-import storyReducer from "./story"; */
+/* import storyReducer from "./story"; */
 
 export default combineReducers({
-  /* create: createReducer, */
+  create: createReducer,
   auth: authReducer,
   /* story: storyReducer, */
 });

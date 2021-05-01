@@ -24,12 +24,13 @@ class NavbarMenu extends Component {
     const cls = ["Navbar", "navbar", "navbar-expand-lg"];
     const links = [];
     if (this.props.isAuthenticated) {
+      links.push({ to: "about", label: "Как это работает?", exact: false });
       links.push({ to: "create-story", label: "Создать", exact: false });
       links.push({ to: "stories", label: "Выбрать", exact: false });
-      links.push({ to: "about", label: "О нас", exact: false });
+      
       links.push({ to: "logout", label: "Выйти", exact: true });
     } else {
-      links.push({ to: "about", label: "О нас", exact: false });
+      links.push({ to: "about", label: "Как это работает?", exact: false });
       links.push({ to: "auth", label: "Авторизация", exact: true });
     }
     return (

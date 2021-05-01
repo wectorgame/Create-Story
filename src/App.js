@@ -21,7 +21,7 @@ class App extends Component {
         <Route path="/auth" component={Auth}></Route>
         <Route path="/about" component={About}></Route>
         <Route path="/" component={Home}></Route>
-        <Redirect to="/"></Redirect>
+        <Redirect to="/" component={Home}></Redirect>
       </Switch>
     );
     if (this.props.isAuthenticated) {

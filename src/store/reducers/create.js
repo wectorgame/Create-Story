@@ -1,7 +1,9 @@
 import {
+  CHECKBOX_VALUE,
   CURRENT_EXCURSIONS,
   CURRENT_PLACE,
   DATE_IN,
+  DATE_OUT,
   GUEST_COUNTER,
 } from "../actions/actionTypes";
 
@@ -20,6 +22,9 @@ const initialState = {
   typesTourism: ["Активный", "Познавательный", "Шоппинг-туризм"],
   excursions: ["Гастрономия", "Поход в горы", "Подводное плаванье", "Шопинг"],
   activeExcursions: [],
+  food: false,
+  transport: false,
+  freeTime: false,
   restaraunts: [],
   personal: "",
   price: 0,
@@ -37,6 +42,12 @@ export default function createReducer(state = initialState, action) {
         ...state,
         dateIn: action.date,
       };
+    case DATE_OUT:
+      return {
+        ...state,
+        dateOut: action.date,
+      };
+
     case CURRENT_PLACE:
       return {
         ...state,
@@ -51,6 +62,11 @@ export default function createReducer(state = initialState, action) {
       return {
         ...state,
         guests: state.guests + action.guests,
+      };
+    case CHECKBOX_VALUE:
+      return {
+        ...state,
+        [action.name]: action.checked,
       };
     default:
       return state;

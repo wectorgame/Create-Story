@@ -1,11 +1,19 @@
 import {
+  CHECKBOX_VALUE,
   CURRENT_EXCURSIONS,
   CURRENT_PLACE,
   DATE_IN,
+  DATE_OUT,
   GUEST_COUNTER,
 } from "./actionTypes";
 
-export function dateInHandler(date) {
+export function dateInHandler(date, out = false) {
+  
+  if (out)
+    return {
+      type: DATE_OUT,
+      date,
+    };
   return {
     type: DATE_IN,
     date,
@@ -27,5 +35,12 @@ export function newPlace(place) {
   return {
     type: CURRENT_PLACE,
     place,
+  };
+}
+export function checkBoxChanger(name, checked) {
+  return {
+    type: CHECKBOX_VALUE,
+    name,
+    checked,
   };
 }

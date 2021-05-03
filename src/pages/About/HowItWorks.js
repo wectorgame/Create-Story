@@ -89,7 +89,7 @@ function HowItWorks(props) {
                 <div className={classes.number}>2.</div>
                 <img src={HowItWorks2} alt="graph" className={classes.image} />
                 <Typography variant="h5" align="center">
-                  Зайдите в раздел создать
+                  Зайдите в раздел создать, и заполните анкету.
                 </Typography>
               </div>
             </Grid>
@@ -98,8 +98,10 @@ function HowItWorks(props) {
                 <div className={classes.number}>3.</div>
                 <img src={HowItWorks3} alt="clock" className={classes.image} />
                 <Typography variant="h5" align="center">
-                  {"New offers every week. New experiences, new surprises. "}
-                  {"Your Sundays will no longer be alike."}
+                  {"Готово! "}
+                  {
+                    "Вы можете посмотреть свой или выбрать уже собранный тур в разделе выбрать."
+                  }
                 </Typography>
               </div>
             </Grid>

@@ -10,9 +10,7 @@ export function GuestCounter(props) {
       >
         -
       </button>
-      <input type="text" name="guests" value={props.guests}>
-        
-      </input>
+      <input type="text" name="guests" readOnly value={props.guests}></input>
       <button
         className={"plus"}
         onClick={props.addCounter}

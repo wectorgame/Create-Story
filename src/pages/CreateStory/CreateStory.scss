@@ -1,3 +1,20 @@
+.Create-background {
+  padding-bottom: 70px;
+  background-image: linear-gradient(
+      to right,
+      rgba(254, 225, 64, 0.3) 0%,
+      rgba(250, 112, 154, 0.3) 100%
+    ),
+    url(../../images/mountains-sea.jpg);
+  background-size: cover;
+  background-position: center;
+  & h1 {
+    padding:20px;
+    text-align: center;
+    color: #fff;
+  }
+}
+
 .react-calendar {
   font-family: "Montserrat", sans-serif;
   border-radius: 30px;
@@ -12,6 +29,12 @@
 }
 .Create-Form {
   margin: auto;
+
+  padding-top: 40px;
+  padding-bottom: 100px;
+  background-color: #fff;
+  border-radius: 50px;
+  width: 70%;
 }
 .MuiSelect-selectMenu {
   width: 240px im !important;

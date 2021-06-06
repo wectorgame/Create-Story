@@ -1,5 +1,6 @@
 import { ButtonBase, Container, withStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Typography from "./Typography";
 
 const styles = (theme) => ({
@@ -77,6 +78,14 @@ const styles = (theme) => ({
     bottom: -2,
     left: "calc(50% - 9px)",
     transition: theme.transitions.create("opacity"),
+  },
+  LinkProfile: {
+    color: "inherit",
+    textDecoration: "none",
+    "&:hover": {
+      color: "inherit",
+      textDecoration: "none",
+    },
   },
 });
 function ChillCategories(props) {
@@ -166,15 +175,17 @@ function ChillCategories(props) {
             />
             <div className={classes.imageBackdrop} />
             <div className={classes.imageButton}>
-              <Typography
-                component="h3"
-                variant="h6"
-                color="inherit"
-                className={classes.imageTitle}
-              >
-                {image.title}
-                <div className={classes.imageMarked} />
-              </Typography>
+              <Link to={"/profiles"} className={classes.LinkProfile}>
+                <Typography
+                  component="h3"
+                  variant="h6"
+                  color="inherit"
+                  className={classes.imageTitle}
+                >
+                  {image.title}
+                  <div className={classes.imageMarked} />
+                </Typography>
+              </Link>
             </div>
           </ButtonBase>
         ))}

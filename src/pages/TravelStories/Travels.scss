@@ -1,0 +1,132 @@
+.Stories {
+  align-items: center;
+  color: #fff;
+  &__background {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+      ),
+      url(../../images/mountain.jpg);
+    background-position: center;
+    background-size: cover;
+    & .row {
+      justify-content: center;
+    }
+  }
+  & h1 {
+    justify-self: center;
+    margin-top: 120px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+  @media screen and (max-width: 500px) {
+    h1 {
+      font-size: 35px;
+    }
+  }
+}
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto 75px auto;
+  margin-bottom: 75px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 210px 80px;
+  grid-template-areas: "image" "text" "stats";
+  font-family: roboto;
+  border-radius: 18px;
+  background-color: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  transition: 0.5s ease;
+  cursor: pointer;
+  &__meganom {
+    grid-area: image;
+    background: url(../../images/meganom.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__koktebel {
+    grid-area: image;
+    background: url(../../images/koktebel.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__newsvit {
+    grid-area: image;
+    background: url(../../images/newsvit.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__text {
+    grid-area: text;
+  }
+  &__place {
+    color: red;
+    font-size: 13px;
+  }
+  &__text {
+    color: rgba(255, 102, 0, 0.719);
+    font-size: 13px;
+    & p {
+      color: grey;
+      font-size: 15px;
+      font-weight: 300;
+    }
+    & h2 {
+      margin-top: 0px;
+      font-size: 28px;
+    }
+  }
+  &__stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+    &__stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0;
+      color: white;
+      &__border {
+        border-left: 1px solid rgb(172, 26, 87);
+        border-right: 1px solid rgb(172, 26, 87);
+      }
+    }
+    &__type {
+      font-size: 16px;
+      font-weight: 300;
+    }
+    &__value {
+      font-size: 14px;
+      font-weight: 500;
+      & sup {
+        font-size: 12px;
+      }
+    }
+  }
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    grid-template-columns: 240px;
+  }
+}

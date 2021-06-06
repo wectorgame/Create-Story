@@ -1,3 +1,4 @@
+import axiosStory from "../../axios/axios-story";
 import {
   CHECKBOX_VALUE,
   CURRENT_EXCURSIONS,
@@ -8,7 +9,6 @@ import {
 } from "./actionTypes";
 
 export function dateInHandler(date, out = false) {
-  
   if (out)
     return {
       type: DATE_OUT,
@@ -42,5 +42,14 @@ export function checkBoxChanger(name, checked) {
     type: CHECKBOX_VALUE,
     name,
     checked,
+  };
+}
+export function finishStory() {
+  return async (dispatch, getState) => {
+    try {
+      await axiosStory.post("story.json", getState().create.story);
+    } catch (e) {
+      console.log(e);
+    }
   };
 }

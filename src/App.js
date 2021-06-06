@@ -8,6 +8,7 @@ import About from "./pages/About/About";
 import Auth from "./pages/Auth/Auth";
 import CreateStory from "./pages/CreateStory/CreateStory";
 import Home from "./pages/Home/Home";
+import TravelProfile from "./pages/TravelProfile/TravelProfile";
 import Stories from "./pages/TravelStories/Stories";
 import { autoLogin } from "./store/actions/auth";
 
@@ -18,6 +19,8 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
+        {" "}
+        <Route path="/profiles" component={TravelProfile} exact></Route>
         <Route path="/auth" component={Auth}></Route>
         <Route path="/about" component={About}></Route>
         <Route path="/" component={Home}></Route>
@@ -30,7 +33,8 @@ class App extends Component {
           <Route path="/about" component={About}></Route>
           <Route path="/create-story" component={CreateStory}></Route>
           <Route path="/stories" component={Stories}></Route>
-          <Route path="/logout" component={Logout}></Route>
+          <Route path="/logout" component={Logout}></Route>{" "}
+          <Route path="/profiles" component={TravelProfile}></Route>
           <Route path="/" component={Home}></Route>
           <Redirect to="/"></Redirect>
         </Switch>

@@ -1,0 +1,211 @@
+.Travel-Profile {
+  &__background {
+    background-image: linear-gradient(
+        to right,
+        rgba(254, 225, 64, 0.3) 0%,
+        rgba(250, 112, 154, 0.3) 100%
+      ),
+      url(../../images/medvel.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.service::before,
+.service::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.service {
+  font-size: 10px;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+
+  padding: 0 1.5rem;
+}
+
+.service {
+  width: 80%;
+  max-width: 80rem;
+  padding: 3rem 5rem;
+  background-color: #fff;
+  box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 0.8rem;
+}
+
+.service-image {
+  min-width: 35rem;
+  max-width: 35rem;
+  height: 30rem;
+  transform: translateX(-8rem);
+  position: relative;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.8rem;
+}
+
+.service-image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  box-shadow: 0.5rem 0.5rem 3rem 1px rgba(0, 0, 0, 0.05);
+  border-radius: 0.8rem;
+}
+
+.service-image-acva::before {
+  background-image: linear-gradient(
+    to right,
+    rgba(250, 112, 154, 0.4) 0%,
+    rgba(254, 225, 64, 0.4) 100%
+  );
+}
+
+.service-image-sea::before {
+  background-image: linear-gradient(
+    to top,
+    rgba(48, 207, 208, 0.4) 0%,
+    rgba(51, 8, 103, 0.4) 100%
+  );
+}
+
+.service-image-moun::before {
+  background-image: linear-gradient(
+    to right,
+    /* rgba(132, 250, 176, 0) 0%, */ rgba(143, 211, 244, 0.8) 100%
+  );
+}
+
+.service-name {
+  font-size: 2.5rem;
+  margin: 1rem 0 1.5rem;
+  text-transform: uppercase;
+  color: #fa709a;
+}
+
+.service-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.service-cta {
+  border: none;
+  display: inline;
+  padding: 1.5rem 3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    rgba(250, 112, 154, 0.6) 0%,
+    rgba(254, 225, 64, 0.6) 100%
+  );
+  border-radius: 0.8rem;
+  text-decoration: none;
+}
+
+.service-cta:hover {
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    rgba(254, 225, 64, 0.6) 0%,
+    rgba(250, 112, 154, 0.6) 100%
+  );
+}
+
+@media screen and (max-width: 1368px) {
+  .service {
+    max-width: 80rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-name {
+    font-size: 2rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .place-name {
+    margin-top: 0;
+  }
+
+  .service-text {
+    font-size: 1rem;
+  }
+
+  .service-image {
+    margin-bottom: 0px;
+    padding: 0;
+    min-width: 100%;
+    max-width: 100%;
+
+    transform: translate(0, -4rem);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .service {
+    width: 100%;
+    margin: 0;
+
+    padding: 2.5rem;
+    flex-direction: column;
+  }
+
+  .service-image {
+    min-width: 100%;
+    max-width: 100%;
+    transform: translate(0, -4rem);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .services {
+    padding: 0;
+  }
+  .service {
+    width: 100%;
+    padding: 0rem;
+  }
+
+  .service-info {
+    padding: 0.5rem;
+  }
+
+  .service-cta {
+    display: flex;
+    display: inline-block;
+    margin: 0;
+    padding: 1rem 1.5rem;
+  }
+
+  .service-text {
+    margin-bottom: 1.5rem;
+  }
+
+  .service-image {
+    min-width: 100%;
+    max-width: 100%;
+    height: 50%;
+
+    transform: translate(0, 0);
+  }
+}

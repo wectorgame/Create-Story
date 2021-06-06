@@ -27,14 +27,14 @@ class NavbarMenu extends Component {
       links.push({ to: "about", label: "Как это работает?", exact: false });
       links.push({ to: "create-story", label: "Создать", exact: false });
       links.push({ to: "stories", label: "Выбрать", exact: false });
-      
+
       links.push({ to: "logout", label: "Выйти", exact: true });
     } else {
       links.push({ to: "about", label: "Как это работает?", exact: false });
       links.push({ to: "auth", label: "Авторизация", exact: true });
     }
     return (
-      <Navbar expand="lg" className={cls.join(" ")}>
+      <Navbar expand="lg" className={cls.join(" ")} fixed="top">
         <div className="container-fluid ">
           <NavLink
             to="/"

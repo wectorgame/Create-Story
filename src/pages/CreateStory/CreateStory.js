@@ -7,6 +7,7 @@ import {
   checkBoxChanger,
   counterChanger,
   dateInHandler,
+  finishStory,
   newExcursions,
   newPlace,
 } from "../../store/actions/create";
@@ -19,6 +20,7 @@ import { GuestCounter } from "./CreateStoryComponents/GuestCounter";
 import CheckboxesGroup from "./CreateStoryComponents/CheckBoxGroup";
 import ChillCategories from "../Home/HomeComponents/ChillCategories";
 import Button from "../../components/UI/Button/Button";
+
 class CreateStory extends Component {
   dateInChanger = (date) => {
     this.props.dateInHandler(date);
@@ -44,6 +46,20 @@ class CreateStory extends Component {
   checkBoxHandler = (event) => {
     this.props.checkBoxChanger(event.target.name, event.target.checked);
   };
+  validateControl(story) {
+    let isValid = true;
+
+    isValid = story.dateIn.getDay() + 1 <= story.dateOut.getDay() && isValid;
+    isValid = story.currentPlace && isValid;
+    isValid = story.currentExc.length > 0 && isValid;
+    isValid = story.guests > 0 && isValid;
+    return isValid;
+  }
+  finishStoryHandler = (event) => {
+    event.preventDefault();
+
+    this.props.finishStory(this.props.story);
+  };
   render() {
     return (
       <div className="Create-Story">
@@ -52,16 +68,18 @@ class CreateStory extends Component {
             <h1 className=" display-4">Твой Выбор, твои правила</h1>
             <div className="Create-Form">
               <form onSubmit={this.onSubmitHandler}>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                  <Grid container>
+                <MuiPickersUtilsProvider
+                  utils={DateFnsUtils}
+                >
+                  <Grid container style={{ flexWrap: "nowrap" }}>
                     <Calendar
-                      label={"дата заезда"}
-                      value={this.props.dateIn}
+                      label={"дата Заезда"}
+                      value={this.props.story.dateIn}
                       onChange={this.dateInChanger}
                     />
                     <Calendar
                       label={"дата Выезда"}
-                      value={this.props.dateOut}
+                      value={this.props.story.dateOut}
                       onChange={this.dateOutChanger}
                     />
                   </Grid>
@@ -71,7 +89,7 @@ class CreateStory extends Component {
                   placeChange={this.placeHandler}
                 />
                 <GuestCounter
-                  guests={this.props.guests}
+                  guests={this.props.story.guests}
                   addCounter={this.addCounterHandler}
                   minusCounter={this.minusCounterHandler}
                 />
@@ -81,12 +99,20 @@ class CreateStory extends Component {
                   label={"Экскурсии"}
                 />
                 <CheckboxesGroup
-                  food={this.props.food}
-                  transport={this.props.transport}
-                  freeTime={this.props.freeTime}
+                  food={this.props.story.food}
+                  transport={this.props.story.transport}
+                  freeTime={this.props.story.freeTime}
                   onChange={this.checkBoxHandler}
                 />
-                <Button>Отправить заявку</Button>
+                {this.validateControl(this.props.story) ? (
+                  <Button type="secondary" onClick={this.finishStoryHandler}>
+                    Отправить заявку
+                  </Button>
+                ) : (
+                  <Button type="secondary" disabled={true}>
+                    Отправить заявку
+                  </Button>
+                )}
               </form>
             </div>
           </div>
@@ -99,16 +125,9 @@ class CreateStory extends Component {
 
 function mapStateToProps(state) {
   return {
-    adults: state.create.adults,
+    story: state.create.story,
     places: state.create.places,
-    children: state.create.children,
-    dateIn: state.create.dateIn,
-    dateOut: state.create.dateOut,
     excursions: state.create.excursions,
-    guests: state.create.guests,
-    food: state.create.food,
-    transport: state.create.transport,
-    freeTime: state.create.freeTime,
   };
 }
 function mapDispatchToProps(dispatch) {
@@ -119,6 +138,7 @@ function mapDispatchToProps(dispatch) {
     counterChanger: (num) => dispatch(counterChanger(num)),
     checkBoxChanger: (name, checked) =>
       dispatch(checkBoxChanger(name, checked)),
+    finishStory: () => dispatch(finishStory()),
   };
 }
 

@@ -13,7 +13,7 @@ class Home extends Component {
           <div className="container Home__root">
             <h1 className="Home__h1">
               Создай выходные по своему стилю
-              <hr></hr>
+              
             </h1>
             <h3 className="Home__h3">
               Создай путешествие которое еще никто не делал и получи скидку до

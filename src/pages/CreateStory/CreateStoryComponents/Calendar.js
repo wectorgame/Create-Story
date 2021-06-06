@@ -14,7 +14,12 @@ export default function Calendar(props) {
       label={props.label}
       value={props.value}
       onChange={props.onChange}
-      style={{ margin: "16px 16px 8px 16px" }}
+      style={{
+        margin: "16px 16px 8px 16px",
+        border: "1px solid gray",
+        borderRadius: "5px",
+        paddingLeft: "12px",
+      }}
       KeyboardButtonProps={{
         "aria-label": "change date",
       }}

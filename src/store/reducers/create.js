@@ -8,7 +8,18 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
-  story: [],
+  story: {
+    dateIn: new Date(),
+    dateOut: new Date(),
+    currentPlace: null,
+    currentExc: [],
+    food: false,
+    transport: false,
+    freeTime: false,
+    guests: 0,
+    personal: "",
+    price: 0,
+  },
   places: [
     "Судак",
     "Новый Свет",
@@ -17,22 +28,17 @@ const initialState = {
     "Ялта",
     "Севастополь ",
   ],
-  dateIn: new Date(),
-  dateOut: new Date(),
   typesTourism: ["Активный", "Познавательный", "Шоппинг-туризм"],
-  excursions: ["Гастрономия", "Поход в горы", "Подводное плаванье", "Шопинг"],
+  excursions: [
+    "Гастрономия",
+    "Поход в горы",
+    "Дайвинг",
+    "Шопинг",
+    "Морская прогулка",
+  ],
   activeExcursions: [],
-  food: false,
-  transport: false,
-  freeTime: false,
-  restaraunts: [],
-  personal: "",
-  price: 0,
   error: null,
   loading: false,
-  currentPlace: null,
-  currentExc: [],
-  guests: 0,
 };
 
 export default function createReducer(state = initialState, action) {
@@ -40,33 +46,33 @@ export default function createReducer(state = initialState, action) {
     case DATE_IN:
       return {
         ...state,
-        dateIn: action.date,
+        story: { ...state.story, dateIn: action.date },
       };
     case DATE_OUT:
       return {
         ...state,
-        dateOut: action.date,
+        story: { ...state.story, dateOut: action.date },
       };
 
     case CURRENT_PLACE:
       return {
         ...state,
-        currentPlace: action.place,
+        story: { ...state.story, currentPlace: action.place },
       };
     case CURRENT_EXCURSIONS:
       return {
         ...state,
-        currentExc: action.exc,
+        story: { ...state.story, currentExc: action.exc },
       };
     case GUEST_COUNTER:
       return {
         ...state,
-        guests: state.guests + action.guests,
+        story: { ...state.story, guests: state.story.guests + action.guests },
       };
     case CHECKBOX_VALUE:
       return {
         ...state,
-        [action.name]: action.checked,
+        story: { ...state.story, [action.name]: action.checked },
       };
     default:
       return state;

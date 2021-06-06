@@ -1,41 +1,79 @@
 .Create-background {
   padding-bottom: 70px;
   background-image: linear-gradient(
-      to right,
-      rgba(254, 225, 64, 0.3) 0%,
-      rgba(250, 112, 154, 0.3) 100%
+      60deg,
+      rgba(67, 233, 123, 0.3) 0%,
+      rgba(80, 201, 195, 0.3) 100%
     ),
     url(../../images/mountains-sea.jpg);
   background-size: cover;
   background-position: center;
   & h1 {
-    padding:20px;
+    padding: 20px;
     text-align: center;
     color: #fff;
   }
 }
-
+/* 020 New LifeGet .PNG#43e97b */
 .react-calendar {
   font-family: "Montserrat", sans-serif;
   border-radius: 30px;
 }
 .MuiGrid-container {
   justify-content: center;
-
   max-width: 100%;
 }
 .MuiFormControl-marginNormal {
   margin: 16px 16px 8 16px;
 }
+.MuiInput-underline:before {
+  content: none !important;
+}
+.MuiInput-underline:after {
+  content: none !important;
+}
+.MuiFormLabel-root.Mui-focused {
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+.MuiInputLabel-shrink {
+  transform: translate(0, 1.5px) scale(0.75);
+  transform-origin: top !important;
+}
+.MuiInputLabel-formControl {
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform: none !important;
+}
 .Create-Form {
   margin: auto;
 
-  padding-top: 40px;
-  padding-bottom: 100px;
+  padding-top: 30px;
+  padding-bottom: 60px;
   background-color: #fff;
   border-radius: 50px;
   width: 70%;
 }
 .MuiSelect-selectMenu {
   width: 240px im !important;
+}
+@media (max-width: 870px) {
+  .Create-background {
+    padding: 0;
+    & h1 {
+      display: none;
+    }
+    .Create-Form {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      margin-bottom: 20px;
+    }
+  }
+  .MuiGrid-container {
+    flex-wrap: wrap !important;
+  }
+  .MuiInputBase-input {
+    font-size: 12px !important;
+  }
 }

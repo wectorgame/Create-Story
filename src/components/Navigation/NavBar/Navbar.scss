@@ -1,34 +1,31 @@
-$bg-color: rgba(254, 225, 64, 0.8);
+$bg-color: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
 $pink-color: #fa709a;
 .Navbar {
   box-sizing: border-box;
-
-  background-color: $bg-color;
-  & ul{
-
+ 
+  background-image: $bg-color;
+  & ul {
   }
   & ul a {
-    
     color: #363d54;
     font-size: 20px;
     text-decoration: none;
     padding: 0 20px 10px 20px;
     transition: opacity 0.3s;
   }
-  & ul a:hover, .active{
+  & ul a:hover,
+  .active {
     opacity: 0.7;
   }
 }
 .Logo {
-    
   & img {
-      margin-right: 12px;
-      max-width: 2.5rem;
+    margin-right: 12px;
+    max-width: 2.5rem;
   }
   & span {
-      font-size: 20px;
-      text-decoration: none;
-      color: #363d54;
-      
+    font-size: 20px;
+    text-decoration: none;
+    color: #363d54;
   }
 }

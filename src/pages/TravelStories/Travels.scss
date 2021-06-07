@@ -33,7 +33,132 @@
   margin: 0 auto 75px auto;
   margin-bottom: 75px;
 }
+.order {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 280px 80px;
+  grid-template-areas: "image" "text" "stats";
+  background-color: white;
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transition: 0.5s ease;
+  cursor: pointer;
+  text-align: center;
+  &__meganom {
+    grid-area: image;
+    background: url(../../images/meganom.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__newSvit {
+    grid-area: image;
+    background: url(../../images/newsvit.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__sudak {
+    grid-area: image;
+    background: url(../../images/sudak.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__sevastopol {
+    grid-area: image;
+    background: url(../../images/sevas.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__koktebel {
+    grid-area: image;
+    background: url(../../images/koktebel.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__yalta {
+    grid-area: image;
+    background: url(../../images/yalta.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  &__text {
+    grid-area: text;
+    color: black;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    &__services {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
 
+      & img {
+        margin-left: 10px;
+      }
+      & span {
+        margin: 5px;
+      }
+    }
+    &__place {
+      color: red;
+      font-size: 13px;
+    }
+    &__time {
+      display: flex;
+      font-size: 16px;
+      font-weight: bold;
+      & span {
+        line-height: 20px;
+        margin: 5px; /* 
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 20px; */
+      }
+    }
+    &__excurs {
+    }
+  }
+  &__stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+    &__stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0;
+      color: white;
+      &__border {
+        border-left: 1px solid rgb(172, 26, 87);
+        border-right: 1px solid rgb(172, 26, 87);
+      }
+    }
+    &__type {
+      font-size: 16px;
+      font-weight: 300;
+    }
+    &__value {
+      font-size: 14px;
+      font-weight: 500;
+      & sup {
+        font-size: 12px;
+      }
+    }
+  }
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  }
+}
 .card {
   display: grid;
   grid-template-columns: 300px;
@@ -128,5 +253,10 @@
 @media screen and (max-width: 500px) {
   .card {
     grid-template-columns: 240px;
+  }
+  .order {
+    &:hover {
+      transform: none;
+    }
   }
 }

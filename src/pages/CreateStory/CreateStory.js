@@ -20,6 +20,7 @@ import { GuestCounter } from "./CreateStoryComponents/GuestCounter";
 import CheckboxesGroup from "./CreateStoryComponents/CheckBoxGroup";
 import ChillCategories from "../Home/HomeComponents/ChillCategories";
 import Button from "../../components/UI/Button/Button";
+import { Link } from "react-router-dom";
 
 class CreateStory extends Component {
   dateInChanger = (date) => {
@@ -68,9 +69,7 @@ class CreateStory extends Component {
             <h1 className=" display-4">Твой Выбор, твои правила</h1>
             <div className="Create-Form">
               <form onSubmit={this.onSubmitHandler}>
-                <MuiPickersUtilsProvider
-                  utils={DateFnsUtils}
-                >
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <Grid container style={{ flexWrap: "nowrap" }}>
                     <Calendar
                       label={"дата Заезда"}
@@ -106,7 +105,12 @@ class CreateStory extends Component {
                 />
                 {this.validateControl(this.props.story) ? (
                   <Button type="secondary" onClick={this.finishStoryHandler}>
-                    Отправить заявку
+                    <Link
+                      to="home"
+                      style={{ textDecoration: "none", color: "#fff" }}
+                    >
+                      Отправить заявку
+                    </Link>
                   </Button>
                 ) : (
                   <Button type="secondary" disabled={true}>

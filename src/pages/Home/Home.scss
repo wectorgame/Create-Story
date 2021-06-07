@@ -1,11 +1,13 @@
 .Home {
   align-items: center;
   color: #fff;
+
   &__background {
+    height: 900px;
     background-image: linear-gradient(
         to right,
-        rgba(254, 225, 64, 0.3) 0%,
-        rgba(250, 112, 154, 0.3) 100%
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.3) 100%
       ),
       url(../../images/frank-mckenna-OD9EOzfSOh0-unsplash.jpg);
     background-position: center;
@@ -44,19 +46,17 @@
   &__button {
     margin: 40px !important;
   }
- 
 }
 .auth-button {
-  
   color: #fff;
   &:hover {
     color: #fff;
     outline: none;
-  text-decoration: none;
+    text-decoration: none;
   }
-  &:active{
+  &:active {
     color: #fff;
     outline: none;
-  text-decoration: none;
+    text-decoration: none;
   }
 }

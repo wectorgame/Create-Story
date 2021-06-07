@@ -1,14 +1,98 @@
 import { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { connect } from "react-redux";
+import Loader from "../../components/UI/Loader/Loader";
+import { fetchStories } from "../../store/actions/story";
 import "./Travels.scss";
+import check from "../../images/check-line.svg";
+import close from "../../images/close-line.svg";
 class Stories extends Component {
   renderOrderList(list) {
-    return list.map((order, index) => <div key={index}></div>);
+    const placesToImage = {
+      Меганом: "__meganom",
+      "Новый Свет": "__newSvit",
+      Судак: "__sudak",
+      Коктебель: "__koktebel",
+      Ялта: "__yalta",
+      Севастополь: "__sevastopol",
+    };
+    return list.map((order, index) => {
+      const price = Math.floor(
+        order.guests * (((order.out - order.in) / (60 * 60 * 1000 * 24)) * 750)
+      );
+
+      return (
+        <Col key={index}>
+          <div className="cards">
+            <div className="order">
+              <div className={`order${placesToImage[order.place]}`}></div>
+              <div className="order__text">
+                <span className="order__text__place">{order.place}</span>
+                <div className="order__text__time">
+                  <span className="order__text__time__in">
+                    Заезд {order.in.toLocaleDateString()}
+                  </span>
+                  <span className="order__text__time__out">
+                    Выезд {order.out.toLocaleDateString()}
+                  </span>
+                </div>
+                <div className="order__text__excurs">
+                  <strong>Выбранные экскурсии:</strong> <br></br>{" "}
+                  {order.exc.join(", ")}
+                </div>
+                <div className="order__text__services">
+                  <span>
+                    Свободное время{" "}
+                    <img
+                      height="15"
+                      alt={check}
+                      src={order.freeTime ? check : close}
+                    ></img>
+                  </span>
+                  <span>
+                    Транспорт{" "}
+                    <img
+                      height="15"
+                      alt={check}
+                      src={order.transport ? check : close}
+                    ></img>
+                  </span>
+                  <span>
+                    Еда{" "}
+                    <img
+                      height="15"
+                      alt={check}
+                      src={order.food ? check : close}
+                    ></img>
+                  </span>
+                </div>
+              </div>
+              <div className="order__stats">
+                <div className="order__stats__stat">
+                  <div className="order__stats__type">Гостей:</div>
+                  <div className="card__stats__value">
+                    {order.guests}
+                    <sup>чел</sup>
+                  </div>
+                </div>
+                <div className="order__stats__stat">
+                  <div className="order__stats__type">Стоимость:</div>
+                  <div className="card__stats__value">
+                    {price}
+                    <sup>руб.</sup>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Col>
+      );
+    });
   }
   renderCard(cards) {
     return cards.map((card, index) => (
-      <Col>
-        <div className="cards" key={index}>
+      <Col key={index}>
+        <div className="cards">
           <div className="card">
             <div className={card.pictureClass}></div>
             <div className="card__text">
@@ -37,6 +121,9 @@ class Stories extends Component {
         </div>
       </Col>
     ));
+  }
+  async componentDidMount() {
+    this.props.fetchStories();
   }
   render() {
     const cards = [
@@ -68,22 +155,30 @@ class Stories extends Component {
         pictureClass: "card__koktebel",
       },
     ];
+    const myOrder = this.props.stories.map((el) => {
+      return {
+        place: el.currentPlace,
+        in: new Date(el.dateIn),
+        out: new Date(el.dateOut),
+        food: el.food,
+        transport: el.transport,
+        exc: el.currentExc,
+        freeTime: el.freeTime,
+        guests: el.guests,
+      };
+    });
+
     return (
       <Container fluid className="Stories Stories__background">
         <Row>
-          <h1>мои Заявки</h1>
-          <div>
-            <div>
-              <span>Дата приезда</span>
-            </div>
-            <div>
-              <span>Дата выезда</span>
-            </div>
-            <div>
-              Выбранный город <span>Меганом</span>
-            </div>
-            <div>Количество человек</div>
-          </div>
+          <h1>Ваши Заявки</h1>
+        </Row>
+        <Row>
+          {this.props.loading ? (
+            <Loader></Loader>
+          ) : (
+            this.renderOrderList(myOrder)
+          )}
         </Row>
 
         <Row>
@@ -96,5 +191,15 @@ class Stories extends Component {
     );
   }
 }
-
-export default Stories;
+function mapStateToProps(state) {
+  return {
+    stories: state.story.stories,
+    loading: state.story.loading,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchStories: () => dispatch(fetchStories()),
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Stories);

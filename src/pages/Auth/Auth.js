@@ -5,7 +5,8 @@ import Input from "../../components/UI/Input/Input";
 import { auth } from "../../store/actions/auth";
 import "./Auth.scss";
 function validateEmail(email) {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
 
@@ -141,7 +142,7 @@ class Auth extends Component {
                   Войти
                 </Button>
               </form>
-              <form action="#" className="sign-up-form">
+              <form className="sign-up-form">
                 {this.renderInputs()}
                 <Button
                   type="primary"

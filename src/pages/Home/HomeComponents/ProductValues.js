@@ -66,7 +66,7 @@ function ProductValues(props) {
               <Typography variant="h6" className={classes.title}>
                 Лучшие Отели
               </Typography>
-              <Typography variant="h5">
+              <Typography variant="h5" style={{ textAlign: "center" }}>
                 {
                   "От новейшего модного бутик-отеля до легендарного дворца с бассейном XXL."
                 }
@@ -82,9 +82,11 @@ function ProductValues(props) {
               <Typography variant="h6" className={classes.title}>
                 Новейший опыт
               </Typography>
-              <Typography variant="h5">
+              <Typography variant="h5" style={{ textAlign: "center" }}>
                 {/* {"Может сегодня вы попробуете что-то новое?"} */}
-                {"ваши воскресенья не будут похожи."}
+                {
+                  "Вас ждет много невероятных путешествий, мы поможем вам исполнить вашу мечту."
+                }
               </Typography>
             </div>
           </Grid>
@@ -94,8 +96,8 @@ function ProductValues(props) {
               <Typography variant="h6" className={classes.title}>
                 Лучшие рейтинги
               </Typography>
-              <Typography variant="h5">
-                {"Мы работаем только с лучшими и проверенными отелями."}
+              <Typography variant="h5" style={{ textAlign: "center" }}>
+                {"Мы стараемся подобрать для вас самые выгодные предложения."}
                 {/*  {"that you will not find anywhere else."} */}
               </Typography>
             </div>

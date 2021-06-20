@@ -6,7 +6,7 @@ const Input = (props) => {
   const inputType = props.type || "text";
   const cls = ["Input"];
   const htmlFor = `${inputType}-${Math.random()}`;
-  
+
   if (isInvalid(props)) {
     cls.push("invalid");
   }
@@ -18,9 +18,10 @@ const Input = (props) => {
         id={htmlFor}
         value={props.value}
         onChange={props.onChange}
+        autoComplete="on"
         placeholder={inputType}
       ></input>
-      
+
       {isInvalid(props) ? (
         <span>{props.errorMessage || "Введите верное значение"}</span>
       ) : null}

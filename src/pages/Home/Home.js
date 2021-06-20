@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import "./Home.scss";
 import ChillCategories from "./HomeComponents/ChillCategories";
+import CityGallery from "./HomeComponents/CityGallery";
 import ProductValues from "./HomeComponents/ProductValues";
 class Home extends Component {
   render() {
@@ -11,10 +12,7 @@ class Home extends Component {
       <div className="Home">
         <section className={"Home__background"}>
           <div className="container Home__root">
-            <h1 className="Home__h1">
-              Создай выходные по своему стилю
-              
-            </h1>
+            <h1 className="Home__h1">Создай выходные по своему стилю</h1>
             <h3 className="Home__h3">
               Создай путешествие которое еще никто не делал и получи скидку до
               -50%
@@ -25,12 +23,15 @@ class Home extends Component {
               color="primary"
               className="Home__button"
             >
-              <Link to="auth" className="auth-button">Авторизация</Link>
-              
+              <Link to="auth" className="auth-button">
+                Авторизация
+              </Link>
             </Button>
           </div>
         </section>
+        <CityGallery></CityGallery>
         <ProductValues></ProductValues>
+
         <ChillCategories></ChillCategories>
         <footer></footer>
       </div>
